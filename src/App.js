@@ -7,12 +7,7 @@ import Shelf from './shelf';
 
 class BooksApp extends React.Component {
     state = {
-        /**
-         * TODO: Instead of using this state variable to keep track of which page
-         * we're on, use the URL in the browser's address bar. This will ensure that
-         * users can use the browser's back and forward buttons to navigate between
-         * pages, as well as provide a good URL they can bookmark and share.
-         */
+        books: [],
         showSearchPage: false,
     };
     hideSearch = () => {
@@ -20,6 +15,11 @@ class BooksApp extends React.Component {
             showSearchPage: false,
         });
     };
+    getAllBooks() {
+        BooksAPI.getAll().then((response) => {
+            this.setState({ books: response });
+        });
+    }
     render() {
         return (
             <div className="app">
@@ -44,9 +44,28 @@ class BooksApp extends React.Component {
                         </svg>
                         <div className="list-books-content">
                             <div>
-                                <Shelf />
-                                <Shelf />
-                                <Shelf />
+                                <Shelf
+                                    title="Currently reading"
+                                    Books={[<Book />, <Book />]}
+                                />
+                                <Shelf
+                                    title="Want to read"
+                                    Books={[
+                                        <Book />,
+                                        <Book />,
+                                        <Book />,
+                                        <Book />,
+                                    ]}
+                                />
+                                <Shelf
+                                    title="Read"
+                                    Books={[
+                                        <Book />,
+                                        <Book />,
+                                        <Book />,
+                                        <Book />,
+                                    ]}
+                                />
                             </div>
                         </div>
                         <div className="open-search">
