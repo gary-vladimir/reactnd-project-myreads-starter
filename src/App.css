@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@600&display=swap');
+
 html,
 body,
 .root {
@@ -10,21 +14,24 @@ body {
 
 body,
 .app {
-    background: white;
+    background: #212529;
 }
 
 /* main page */
 
 .list-books-title {
-    padding: 10px 0;
-    background: #2e7c31;
+    height: 50px;
+    width: 100%;
+    background: #343a40;
     text-align: center;
 }
 
 .list-books-title h1 {
-    font-weight: 400;
     margin: 0;
     color: white;
+    transform: translateY(15px);
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-size: 2.5em;
 }
 
 .list-books-content {
@@ -34,6 +41,8 @@ body,
 
 .bookshelf {
     padding: 0 10px 20px;
+    text-align: center;
+    color: gainsboro;
 }
 
 @media (min-width: 600px) {
@@ -44,6 +53,8 @@ body,
 
 .bookshelf-title {
     border-bottom: 1px solid #dedede;
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 1.3em;
 }
 
 .bookshelf-books {
@@ -61,7 +72,7 @@ body,
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #2e7d32;
+    background: #4361ee;
     background-image: url('./icons/add.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -72,7 +83,7 @@ body,
 }
 
 .open-search button:hover {
-    background-color: rgb(0, 102, 0);
+    cursor: pointer;
 }
 
 /* search page */
@@ -89,7 +100,7 @@ body,
 
 .search-books-input-wrapper {
     flex: 1;
-    background: #e9e;
+    background: #343a40;
 }
 
 .search-books-bar input {
@@ -98,6 +109,8 @@ body,
     font-size: 1.25em;
     border: none;
     outline: none;
+    background-color: #343a40;
+    color: white;
 }
 
 .close-search {
@@ -113,6 +126,7 @@ body,
     font-size: 0;
     border: none;
     outline: none;
+    background-color: #343a40;
 }
 
 button:active {
@@ -147,6 +161,7 @@ button:active {
 .book-title,
 .book-authors {
     font-size: 0.8em;
+    font-family: 'Hind', sans-serif;
 }
 
 .book-title {
@@ -171,7 +186,7 @@ button:active {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #60ac5d;
+    background: #00b4d8;
     background-image: url('./icons/arrow-drop-down.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -190,7 +205,7 @@ button:active {
 
 .book-cover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    background: #eee;
+    background: #343a40;
 }
 
 .book-cover-title {
