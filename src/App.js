@@ -51,6 +51,18 @@ class BooksApp extends React.Component {
                         <div className="list-books-title">
                             <h1>MyReads</h1>
                         </div>
+                        <svg
+                            viewBox="0 0 200 100"
+                            xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="none"
+                            height="50px"
+                            width="100%"
+                        >
+                            <polygon
+                                points="0,0 200,0 100,100 0,0"
+                                fill="#343a40"
+                            />
+                        </svg>
                         <div className="list-books-content">
                             <div>
                                 <div className="bookshelf">
