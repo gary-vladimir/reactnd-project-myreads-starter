@@ -14,12 +14,16 @@ class BooksApp extends React.Component {
          */
         showSearchPage: false,
     };
-
+    hideSearch = () => {
+        this.setState({
+            showSearchPage: false,
+        });
+    };
     render() {
         return (
             <div className="app">
                 {this.state.showSearchPage ? (
-                    <Search />
+                    <Search onReturn={this.hideSearch} />
                 ) : (
                     <div className="list-books">
                         <div className="list-books-title">
