@@ -20,6 +20,9 @@ class BooksApp extends React.Component {
             this.setState({ books: response });
         });
     }
+    componentDidMount() {
+        this.getAllBooks();
+    }
     render() {
         return (
             <div className="app">
@@ -44,9 +47,18 @@ class BooksApp extends React.Component {
                         </svg>
                         <div className="list-books-content">
                             <div>
+                                {console.log(this.state.books)}
                                 <Shelf
                                     title="Currently reading"
-                                    Books={[<Book />, <Book />]}
+                                    Books={this.state.books.map((e) => {
+                                        return (
+                                            <Book
+                                                title={e.title}
+                                                image={e.imageLinks.thumbnail}
+                                                autor={e.authors}
+                                            />
+                                        );
+                                    })}
                                 />
                                 <Shelf
                                     title="Want to read"
