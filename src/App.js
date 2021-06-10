@@ -5,6 +5,12 @@ import Book from './book';
 import Search from './search';
 import Shelf from './shelf';
 
+const Shelves = [
+    { title: 'Currently reading', value: 'currentlyReading' },
+    { title: 'Want to read', value: 'wantToRead' },
+    { title: 'Read', value: 'read' },
+];
+
 class BooksApp extends React.Component {
     state = {
         books: [],
@@ -52,73 +58,33 @@ class BooksApp extends React.Component {
                         </svg>
                         <div className="list-books-content">
                             <div>
-                                <Shelf
-                                    updateShelf={this.updateShelf}
-                                    key="currentlyReading"
-                                    title="Currently reading"
-                                    Books={this.state.books.map((e) => {
-                                        if (e.shelf === 'currentlyReading') {
-                                            return (
-                                                <Book
-                                                    Book={e}
-                                                    updateShelf={
-                                                        this.updateShelf
-                                                    }
-                                                    title={e.title}
-                                                    image={
-                                                        e.imageLinks.thumbnail
-                                                    }
-                                                    autor={e.authors}
-                                                    value={e.shelf}
-                                                />
-                                            );
-                                        }
-                                    })}
-                                />
-                                <Shelf
-                                    key="wantToRead"
-                                    title="Want to read"
-                                    Books={this.state.books.map((e) => {
-                                        if (e.shelf === 'wantToRead') {
-                                            return (
-                                                <Book
-                                                    Book={e}
-                                                    updateShelf={
-                                                        this.updateShelf
-                                                    }
-                                                    title={e.title}
-                                                    image={
-                                                        e.imageLinks.thumbnail
-                                                    }
-                                                    autor={e.authors}
-                                                    value={e.shelf}
-                                                />
-                                            );
-                                        }
-                                    })}
-                                />
-                                <Shelf
-                                    key="read"
-                                    title="Read"
-                                    Books={this.state.books.map((e) => {
-                                        if (e.shelf === 'read') {
-                                            return (
-                                                <Book
-                                                    updateShelf={
-                                                        this.updateShelf
-                                                    }
-                                                    Book={e}
-                                                    title={e.title}
-                                                    image={
-                                                        e.imageLinks.thumbnail
-                                                    }
-                                                    autor={e.authors}
-                                                    value={e.shelf}
-                                                />
-                                            );
-                                        }
-                                    })}
-                                />
+                                {Shelves.map((f) => {
+                                    return (
+                                        <Shelf
+                                            key={f.title}
+                                            title={f.title}
+                                            Books={this.state.books.map((e) => {
+                                                if (e.shelf === f.value) {
+                                                    return (
+                                                        <Book
+                                                            Book={e}
+                                                            updateShelf={
+                                                                this.updateShelf
+                                                            }
+                                                            title={e.title}
+                                                            image={
+                                                                e.imageLinks
+                                                                    .thumbnail
+                                                            }
+                                                            autor={e.authors}
+                                                            value={e.shelf}
+                                                        />
+                                                    );
+                                                }
+                                            })}
+                                        />
+                                    );
+                                })}
                             </div>
                         </div>
                         <div className="open-search">
