@@ -60,6 +60,7 @@ class BooksApp extends React.Component {
                                         if (e.shelf === 'currentlyReading') {
                                             return (
                                                 <Book
+                                                    Book={e}
                                                     updateShelf={
                                                         this.updateShelf
                                                     }
@@ -68,7 +69,7 @@ class BooksApp extends React.Component {
                                                         e.imageLinks.thumbnail
                                                     }
                                                     autor={e.authors}
-                                                    value="Currently Reading"
+                                                    value={e.shelf}
                                                 />
                                             );
                                         }
@@ -81,11 +82,16 @@ class BooksApp extends React.Component {
                                         if (e.shelf === 'wantToRead') {
                                             return (
                                                 <Book
+                                                    Book={e}
+                                                    updateShelf={
+                                                        this.updateShelf
+                                                    }
                                                     title={e.title}
                                                     image={
                                                         e.imageLinks.thumbnail
                                                     }
                                                     autor={e.authors}
+                                                    value={e.shelf}
                                                 />
                                             );
                                         }
@@ -98,11 +104,16 @@ class BooksApp extends React.Component {
                                         if (e.shelf === 'read') {
                                             return (
                                                 <Book
+                                                    updateShelf={
+                                                        this.updateShelf
+                                                    }
+                                                    Book={e}
                                                     title={e.title}
                                                     image={
                                                         e.imageLinks.thumbnail
                                                     }
                                                     autor={e.authors}
+                                                    value={e.shelf}
                                                 />
                                             );
                                         }
