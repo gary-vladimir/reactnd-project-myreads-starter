@@ -42,12 +42,11 @@ class BooksApp extends React.Component {
                         >
                             <polygon
                                 points="0,0 200,0 100,100 0,0"
-                                fill="#294975"
+                                fill="#354f52"
                             />
                         </svg>
                         <div className="list-books-content">
                             <div>
-                                {console.log(this.state.books)}
                                 <Shelf
                                     title="Currently reading"
                                     Books={this.state.books.map((e) => {
