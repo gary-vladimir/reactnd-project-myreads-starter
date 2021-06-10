@@ -8,6 +8,18 @@ class Search extends Component {
         query: '',
         result: [],
     };
+    updateQuery(query) {
+        this.setState({ query: query });
+        if (query.length > 0) {
+            console.log('search');
+            BooksAPI.search(this.state.query).then((data) => {
+                if (typeof data !== 'undefined' && data.length > 0) {
+                    this.setState({ result: data });
+                }
+                console.log(data);
+            });
+        }
+    }
     render() {
         return (
             <div className="search-books">
@@ -22,11 +34,27 @@ class Search extends Component {
                         <input
                             type="text"
                             placeholder="Search by title or author"
+                            value={this.state.query}
+                            onChange={(e) => {
+                                this.updateQuery(e.target.value);
+                            }}
                         />
                     </div>
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid" />
+                    {this.state.result.map((e) => {
+                        return (
+                            <Book
+                                Book={e}
+                                updateShelf={this.updateShelf}
+                                title={e.title}
+                                image={e.imageLinks.thumbnail}
+                                autor={e.authors}
+                                value={'currentlyReading'}
+                            />
+                        );
+                    })}
                 </div>
             </div>
         );
