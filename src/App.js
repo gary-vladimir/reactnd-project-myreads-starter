@@ -23,6 +23,11 @@ class BooksApp extends React.Component {
     componentDidMount() {
         this.getAllBooks();
     }
+    updateShelf = (book, shelf) => {
+        BooksAPI.update(book, shelf).then(() => {
+            this.getAllBooks();
+        });
+    };
     render() {
         return (
             <div className="app">
@@ -48,22 +53,29 @@ class BooksApp extends React.Component {
                         <div className="list-books-content">
                             <div>
                                 <Shelf
+                                    updateShelf={this.updateShelf}
+                                    key="currentlyReading"
                                     title="Currently reading"
                                     Books={this.state.books.map((e) => {
                                         if (e.shelf === 'currentlyReading') {
                                             return (
                                                 <Book
+                                                    updateShelf={
+                                                        this.updateShelf
+                                                    }
                                                     title={e.title}
                                                     image={
                                                         e.imageLinks.thumbnail
                                                     }
                                                     autor={e.authors}
+                                                    value="Currently Reading"
                                                 />
                                             );
                                         }
                                     })}
                                 />
                                 <Shelf
+                                    key="wantToRead"
                                     title="Want to read"
                                     Books={this.state.books.map((e) => {
                                         if (e.shelf === 'wantToRead') {
@@ -80,6 +92,7 @@ class BooksApp extends React.Component {
                                     })}
                                 />
                                 <Shelf
+                                    key="read"
                                     title="Read"
                                     Books={this.state.books.map((e) => {
                                         if (e.shelf === 'read') {
