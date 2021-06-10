@@ -51,32 +51,50 @@ class BooksApp extends React.Component {
                                 <Shelf
                                     title="Currently reading"
                                     Books={this.state.books.map((e) => {
-                                        return (
-                                            <Book
-                                                title={e.title}
-                                                image={e.imageLinks.thumbnail}
-                                                autor={e.authors}
-                                            />
-                                        );
+                                        if (e.shelf === 'currentlyReading') {
+                                            return (
+                                                <Book
+                                                    title={e.title}
+                                                    image={
+                                                        e.imageLinks.thumbnail
+                                                    }
+                                                    autor={e.authors}
+                                                />
+                                            );
+                                        }
                                     })}
                                 />
                                 <Shelf
                                     title="Want to read"
-                                    Books={[
-                                        <Book />,
-                                        <Book />,
-                                        <Book />,
-                                        <Book />,
-                                    ]}
+                                    Books={this.state.books.map((e) => {
+                                        if (e.shelf === 'wantToRead') {
+                                            return (
+                                                <Book
+                                                    title={e.title}
+                                                    image={
+                                                        e.imageLinks.thumbnail
+                                                    }
+                                                    autor={e.authors}
+                                                />
+                                            );
+                                        }
+                                    })}
                                 />
                                 <Shelf
                                     title="Read"
-                                    Books={[
-                                        <Book />,
-                                        <Book />,
-                                        <Book />,
-                                        <Book />,
-                                    ]}
+                                    Books={this.state.books.map((e) => {
+                                        if (e.shelf === 'read') {
+                                            return (
+                                                <Book
+                                                    title={e.title}
+                                                    image={
+                                                        e.imageLinks.thumbnail
+                                                    }
+                                                    autor={e.authors}
+                                                />
+                                            );
+                                        }
+                                    })}
                                 />
                             </div>
                         </div>
