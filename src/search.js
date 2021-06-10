@@ -12,7 +12,7 @@ class Search extends Component {
         this.setState({ query: query });
         if (query.length > 0) {
             console.log('search');
-            BooksAPI.search(this.state.query).then((data) => {
+            BooksAPI.search(query).then((data) => {
                 if (typeof data !== 'undefined' && data.length > 0) {
                     this.setState({ result: data });
                 }
