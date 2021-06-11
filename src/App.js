@@ -59,7 +59,7 @@ class BooksApp extends React.Component {
                         updateShelf={this.updateShelf}
                     />
                 ) : this.state.showSVG ? (
-                    <img src="./icons/succesful.svg" />
+                    <img src="./icons/succesful.svg" width="100vw" />
                 ) : (
                     <div className="list-books">
                         <div className="list-books-title">
