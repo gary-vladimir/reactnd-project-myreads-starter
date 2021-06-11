@@ -217,6 +217,7 @@ button:active {
     font-size: 0.8em;
 }
 
+/* animated succesful from https://codepen.io/kuvinod5/pen/WNvzazr */
 .success-animation {
     position: absolute;
     top: 50%;
@@ -246,7 +247,7 @@ button:active {
     stroke-width: 2;
     stroke-miterlimit: 10;
     stroke: #4bb71b;
-    fill: #fff;
+    fill: #354f52;
     animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
 }
 
