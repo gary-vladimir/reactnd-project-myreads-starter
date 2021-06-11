@@ -4,6 +4,7 @@ import './App.css';
 import Book from './book';
 import Search from './search';
 import Shelf from './shelf';
+import { Link } from 'react-router-dom';
 
 const Shelves = [
     { title: 'Currently reading', value: 'currentlyReading' },
@@ -128,13 +129,7 @@ class BooksApp extends React.Component {
                             </div>
                         </div>
                         <div className="open-search">
-                            <button
-                                onClick={() =>
-                                    this.setState({ showSearchPage: true })
-                                }
-                            >
-                                Add a book
-                            </button>
+                            <Link to="/create">Add a book</Link>
                         </div>
                     </div>
                 )}

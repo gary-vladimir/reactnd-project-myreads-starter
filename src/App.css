@@ -67,7 +67,7 @@ body,
     bottom: 25px;
 }
 
-.open-search button {
+.open-search {
     display: block;
     width: 50px;
     height: 50px;
@@ -82,7 +82,7 @@ body,
     outline: 0;
 }
 
-.open-search button:hover {
+.open-search :hover {
     cursor: pointer;
 }
 
