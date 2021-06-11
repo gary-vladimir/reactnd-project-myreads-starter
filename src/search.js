@@ -47,11 +47,11 @@ class Search extends Component {
                         return (
                             <Book
                                 Book={e}
-                                updateShelf={this.updateShelf}
+                                updateShelf={this.props.updateShelf}
                                 title={e.title}
                                 image={e.imageLinks.thumbnail}
                                 autor={e.authors}
-                                value={'currentlyReading'}
+                                value={'none'}
                             />
                         );
                     })}
