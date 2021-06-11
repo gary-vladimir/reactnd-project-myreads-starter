@@ -15,6 +15,7 @@ class BooksApp extends React.Component {
     state = {
         books: [],
         showSearchPage: false,
+        showSVG: false,
     };
     hideSearch = () => {
         this.setState({
@@ -32,6 +33,21 @@ class BooksApp extends React.Component {
     updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf).then(() => {
             this.getAllBooks();
+            this.showSVG();
+            sleep(500).then(() => {
+                // Do something after the sleep!
+                this.hideSVG();
+            });
+        });
+    };
+    showSVG = () => {
+        this.setState({
+            showSVG: true,
+        });
+    };
+    hideSVG = () => {
+        this.setState({
+            showSVG: false,
         });
     };
     render() {
@@ -42,6 +58,8 @@ class BooksApp extends React.Component {
                         onReturn={this.hideSearch}
                         updateShelf={this.updateShelf}
                     />
+                ) : this.state.showSVG ? (
+                    <img src="./icons/succesful.svg" />
                 ) : (
                     <div className="list-books">
                         <div className="list-books-title">
@@ -104,6 +122,10 @@ class BooksApp extends React.Component {
             </div>
         );
     }
+}
+
+function sleep(time) {
+    return new Promise((resolve) => setTimeout(resolve, time));
 }
 
 export default BooksApp;
