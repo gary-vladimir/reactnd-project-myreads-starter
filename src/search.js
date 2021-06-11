@@ -50,6 +50,7 @@ class Search extends Component {
                             e.imageLinks.thumbnail &&
                             e.authors && (
                                 <Book
+                                    key={e.id}
                                     Book={e}
                                     updateShelf={this.props.updateShelf}
                                     title={e.title}

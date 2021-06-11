@@ -108,6 +108,7 @@ class BooksApp extends React.Component {
                                                 if (e.shelf === f.value) {
                                                     return (
                                                         <Book
+                                                            key={e.id}
                                                             Book={e}
                                                             updateShelf={
                                                                 this.updateShelf
