@@ -43,18 +43,22 @@ class Search extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid" />
-                    {this.state.result.map((e) => {
-                        return (
-                            <Book
-                                Book={e}
-                                updateShelf={this.props.updateShelf}
-                                title={e.title}
-                                image={e.imageLinks.thumbnail}
-                                autor={e.authors}
-                                value={'none'}
-                            />
-                        );
-                    })}
+                    {this.state.result.map(
+                        (e) =>
+                            e.title &&
+                            e.imageLinks &&
+                            e.imageLinks.thumbnail &&
+                            e.authors && (
+                                <Book
+                                    Book={e}
+                                    updateShelf={this.props.updateShelf}
+                                    title={e.title}
+                                    image={e.imageLinks.thumbnail}
+                                    autor={e.authors}
+                                    value={'none'}
+                                />
+                            )
+                    )}
                 </div>
             </div>
         );
