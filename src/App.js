@@ -34,7 +34,7 @@ class BooksApp extends React.Component {
         BooksAPI.update(book, shelf).then(() => {
             this.getAllBooks();
             this.showSVG();
-            sleep(500).then(() => {
+            sleep(1000).then(() => {
                 // Do something after the sleep!
                 this.hideSVG();
             });
@@ -53,13 +53,13 @@ class BooksApp extends React.Component {
     render() {
         return (
             <div className="app">
-                {this.state.showSearchPage ? (
+                {this.state.showSVG ? (
+                    <div id="succesfulSVG" />
+                ) : this.state.showSearchPage ? (
                     <Search
                         onReturn={this.hideSearch}
                         updateShelf={this.updateShelf}
                     />
-                ) : this.state.showSVG ? (
-                    <img src="./icons/succesful.svg" width="100vw" />
                 ) : (
                     <div className="list-books">
                         <div className="list-books-title">

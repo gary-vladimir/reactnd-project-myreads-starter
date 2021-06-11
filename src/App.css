@@ -81,6 +81,16 @@ body,
     font-size: 0;
     outline: 0;
 }
+#succesfulSVG {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('./icons/succesful.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100px;
+}
 
 .open-search button:hover {
     cursor: pointer;
