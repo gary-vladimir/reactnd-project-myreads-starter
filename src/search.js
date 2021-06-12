@@ -17,6 +17,8 @@ class Search extends Component {
                     this.setState({ result: data });
                 }
             });
+        } else {
+            this.setState({ result: [] });
         }
     }
     render() {
