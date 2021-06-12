@@ -43,8 +43,16 @@ class Search extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid" />
-                    {this.state.result.map(
-                        (e) =>
+                    {this.state.result.map((e) => {
+                        let bookOnShelf = this.props.booksFromMainPage.find(
+                            (b) => b.id === e.id
+                        );
+                        if (bookOnShelf) {
+                            e.shelf = bookOnShelf.shelf;
+                        } else {
+                            e.shelf = 'none';
+                        }
+                        return (
                             e.title &&
                             e.imageLinks &&
                             e.imageLinks.thumbnail &&
@@ -56,10 +64,11 @@ class Search extends Component {
                                     title={e.title}
                                     image={e.imageLinks.thumbnail}
                                     autor={e.authors}
-                                    value={'none'}
+                                    value={e.shelf}
                                 />
                             )
-                    )}
+                        );
+                    })}
                 </div>
             </div>
         );
