@@ -129,7 +129,7 @@ class BooksApp extends React.Component {
                 />
                 <Route
                     exact
-                    to="/search"
+                    path="/search"
                     render={() => (
                         <Search
                             onReturn={this.hideSearch}
