@@ -219,9 +219,11 @@ button:active {
 
 /* animated succesful from https://codepen.io/kuvinod5/pen/WNvzazr */
 .success-animation {
-    position: absolute;
+    position: fixed;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
     width: 100vw;
 }
 
